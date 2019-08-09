@@ -15,7 +15,7 @@ namespace HairSalon.Tests
 
     public ClientTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=to_do_list_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=jessica_munoz;";
     }
 
     [TestMethod]
@@ -28,19 +28,6 @@ namespace HairSalon.Tests
       List<Client> result = Client.GetAll();
 
       //Assert
-      CollectionAssert.AreEqual(newList, result);
-    }
-
-    [TestMethod]
-    public void GetAll_ReturnsEmptyListFromDatabase_ClientList()
-    {
-      // Arrange
-      List<Client> newList = new List<Client> { };
-
-      // Act
-      List<Client> result = Client.GetAll();
-
-      // Assert
       CollectionAssert.AreEqual(newList, result);
     }
   }

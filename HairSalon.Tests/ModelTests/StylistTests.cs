@@ -17,7 +17,7 @@ namespace HairSalon.Tests
     [TestMethod]
     public void StylistConstructor_CreatesInstanceOfStylist_Stylist()
     {
-      Stylist newStylist = new Stylist("test Stylist");
+      Stylist newStylist = new Stylist("Rebecca Cuts");
       Assert.AreEqual(typeof(Stylist), newStylist.GetType());
     }
 
@@ -25,7 +25,7 @@ namespace HairSalon.Tests
     public void GetName_ReturnsName_String()
     {
       //Arrange
-      string name = "Test Stylist";
+      string name = "Rebecca Cuts";
       Stylist newStylist = new Stylist(name);
 
       //Act
@@ -39,7 +39,7 @@ namespace HairSalon.Tests
     public void GetId_ReturnsStylistId_Int()
     {
       //Arrange
-      string name = "Test Stylist";
+      string name = "Rebecca Cuts";
       Stylist newStylist = new Stylist(name);
 
       //Act
@@ -53,8 +53,8 @@ namespace HairSalon.Tests
     public void GetAll_ReturnsAllStylistObjects_StylistList()
     {
       //Arrange
-      string name01 = "Work";
-      string name02 = "School";
+      string name01 = "Rebecca Cuts";
+      string name02 = "Tina Trims";
       Stylist newStylist1 = new Stylist(name01);
       Stylist newStylist2 = new Stylist(name02);
       List<Stylist> newList = new List<Stylist> { newStylist1, newStylist2 };
@@ -70,8 +70,8 @@ namespace HairSalon.Tests
     public void Find_ReturnsCorrectStylist_Stylist()
     {
       //Arrange
-      string name01 = "Work";
-      string name02 = "School";
+      string name01 = "Rebecca Cuts";
+      string name02 = "Tina Trims";
       Stylist newStylist1 = new Stylist(name01);
       Stylist newStylist2 = new Stylist(name02);
 
@@ -85,10 +85,10 @@ namespace HairSalon.Tests
     public void AddClient_AssociatesClientWithStylist_ClientList()
     {
       //Arrange
-      string description = "Walk the dog.";
+      string description = "Nancy Needahaircut";
       Client newClient = new Client(description);
       List<Client> newList = new List<Client> { newClient };
-      string name = "Work";
+      string name = "Rebecca Cuts";
       Stylist newStylist = new Stylist(name);
       newStylist.AddClient(newClient);
 
