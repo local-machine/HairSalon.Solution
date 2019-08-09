@@ -2,15 +2,15 @@
     Layout = "_Layout";
 }
 
-@model ToDoList.Models.Category
+@model HairSalon.Models.Stylist
 
 <h2>Edit</h2>
 
-<h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit this stylist: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.CategoryId)
+    @Html.HiddenFor(model => model.StylistId)
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
@@ -18,4 +18,4 @@
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to Categories", "Index")</p>
+<p>@Html.ActionLink("Back to stylists", "Index")</p>

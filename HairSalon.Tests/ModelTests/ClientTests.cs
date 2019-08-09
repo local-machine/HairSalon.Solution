@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MySql.Data.MySqlClient;
-using ToDoList.Models;
+using HairSalon.Models;
 using System.Collections.Generic;
 using System;
 
-namespace ToDoList.Tests
+namespace HairSalon.Tests
 {
   [TestClass]
   public class ItemTest: IDisposable

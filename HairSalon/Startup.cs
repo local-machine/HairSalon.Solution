@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ToDoList.Models;
+using HairSalon.Models;
 
-namespace ToDoList
+namespace HairSalon
 {
     public class Startup
     {
@@ -23,7 +23,7 @@ namespace ToDoList
             services.AddMvc();
 
             services.AddEntityFrameworkMySql()
-                .AddDbContext<ToDoListContext>(options => options
+                .AddDbContext<HairSalonContext>(options => options
                 .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
         }
         public void Configure(IApplicationBuilder app)
