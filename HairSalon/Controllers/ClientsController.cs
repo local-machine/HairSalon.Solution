@@ -44,30 +44,30 @@ namespace HairSalon.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
+            var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
             ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-            return View(thisItem);
+            return View(thisClient);
         }
 
         [HttpPost]
-        public ActionResult Edit(Item item)
+        public ActionResult Edit(Client client)
         {
-            _db.Entry(item).State = EntityState.Modified;
+            _db.Entry(client).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-            return View(thisItem);
+            var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+            return View(thisClient);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-            _db.Items.Remove(thisItem);
+            var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+            _db.Clients.Remove(thisClient);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
