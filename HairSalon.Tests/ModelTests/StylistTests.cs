@@ -5,86 +5,98 @@ using System;
 
 namespace HairSalon.Tests
 {
-    [TestClass]
-    public class CategoryTest : IDisposable
+  [TestClass]
+  public class StylistTest : IDisposable
+  {
+
+    public void Dispose()
     {
-        public void Dispose()
-        {
-            Category.ClearAll();
-        }
-        [TestMethod]
-        public void CategoryConstructor_CreatesInstanceOfCategory_Category()
-        {
-            Category newCategory = new Category("test category");
-            Assert.AreEqual(typeof(Category), newCategory.GetType());
-        }
-
-        [TestMethod]
-        public void GetName_ReturnsName_String()
-        {
-            string name = "Test Category";
-            Category newCategory = new Category(name);
-            string result = newCategory.Name;
-            Assert.AreEqual(name, result);
-        }
-
-        [TestMethod]
-        public void GetId_ReturnsCategoryId_Int()
-        {
-            string name = "Test Category";
-            Category newCategory = new Category(name);
-            int result = newCategory.Id;
-            Assert.AreEqual(1, result);
-        }
-        [TestMethod]
-        public void GetAll_ReturnsAllCategoryObjects_CategoryList()
-        {
-            //Arrange
-            string name01 = "Work";
-            string name02 = "School";
-            Category newCategory1 = new Category(name01);
-            Category newCategory2 = new Category(name02);
-            List<Category> newList = new List<Category> { newCategory1, newCategory2 };
-
-            //Act
-            List<Category> result = Category.GetAll();
-
-            //Assert
-            CollectionAssert.AreEqual(newList, result);
-        }
-
-        [TestMethod]
-        public void Find_ReturnsCorrectCategory_Category()
-        {
-            //Arrange
-            string name01 = "Work";
-            string name02 = "School";
-            Category newCategory1 = new Category(name01);
-            Category newCategory2 = new Category(name02);
-
-            //Act
-            Category result = Category.Find(2);
-
-            //Assert
-            Assert.AreEqual(newCategory2, result);
-        }
-        [TestMethod]
-        public void AddItem_AssociatesItemWithCategory_ItemList()
-        {
-            //Arrange
-            string description = "Walk the dog.";
-            Item newItem = new Item(description);
-            List<Item> newList = new List<Item> { newItem };
-            string name = "Work";
-            Category newCategory = new Category(name);
-            newCategory.AddItem(newItem);
-
-            //Act
-            List<Item> result = newCategory.Items;
-
-            //Assert
-            CollectionAssert.AreEqual(newList, result);
-        }
+      Stylist.ClearAll();
     }
-}
 
+    [TestMethod]
+    public void StylistConstructor_CreatesInstanceOfStylist_Stylist()
+    {
+      Stylist newStylist = new Stylist("test Stylist");
+      Assert.AreEqual(typeof(Stylist), newStylist.GetType());
+    }
+
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      //Arrange
+      string name = "Test Stylist";
+      Stylist newStylist = new Stylist(name);
+
+      //Act
+      string result = newStylist.Name;
+
+      //Assert
+      Assert.AreEqual(name, result);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnsStylistId_Int()
+    {
+      //Arrange
+      string name = "Test Stylist";
+      Stylist newStylist = new Stylist(name);
+
+      //Act
+      int result = newStylist.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllStylistObjects_StylistList()
+    {
+      //Arrange
+      string name01 = "Work";
+      string name02 = "School";
+      Stylist newStylist1 = new Stylist(name01);
+      Stylist newStylist2 = new Stylist(name02);
+      List<Stylist> newList = new List<Stylist> { newStylist1, newStylist2 };
+
+      //Act
+      List<Stylist> result = Stylist.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectStylist_Stylist()
+    {
+      //Arrange
+      string name01 = "Work";
+      string name02 = "School";
+      Stylist newStylist1 = new Stylist(name01);
+      Stylist newStylist2 = new Stylist(name02);
+
+      //Act
+      Stylist result = Stylist.Find(2);
+
+      //Assert
+      Assert.AreEqual(newStylist2, result);
+    }
+    [TestMethod]
+    public void AddClient_AssociatesClientWithStylist_ClientList()
+    {
+      //Arrange
+      string description = "Walk the dog.";
+      Client newClient = new Client(description);
+      List<Client> newList = new List<Client> { newClient };
+      string name = "Work";
+      Stylist newStylist = new Stylist(name);
+      newStylist.AddClient(newClient);
+
+      //Act
+      List<Client> result = newStylist.Clients;
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+  }
+}
