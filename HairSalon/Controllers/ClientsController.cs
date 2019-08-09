@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace ToDoList.Controllers
+namespace HairSalon.Controllers
 {
-    public class ItemsController : Controller
+    public class ClientsController : Controller
     {
-        private readonly ToDoListContext _db;
+        private readonly HairSalonContext _db;
 
-        public ItemsController(ToDoListContext db)
+        public ClientsController(HairSalonContext db)
         {
             _db = db;
         }
@@ -19,7 +19,7 @@ namespace ToDoList.Controllers
 
         public ActionResult Index()
         {
-            List<Item> model = _db.Items.Include(items => items.Category).ToList();
+            List<Client> model = _db.Clients.Include(clients => clients.Category).ToList();
             return View(model);
         }
 
@@ -30,17 +30,17 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Item item)
+        public ActionResult Create(Client client)
         {
-            _db.Items.Add(item);
+            _db.Client.Add(client);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
         {
-            Item thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-            return View(thisItem);
+            Client thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+            return View(thisClient);
         }
         public ActionResult Edit(int id)
         {
