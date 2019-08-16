@@ -55,7 +55,6 @@ Simple web application used to record the hair stylists and respective clients o
 | -------------------------------------- | :--------------------------------------------------------------------------------------------------------: | :-----------------------------------: |
 | User can add new stylists.              |                      User clicks "Add a new stylist", fills out form and clicks "Add".                      |        New stylist is created.         |
 | User can add new clients to the stylist. | User clicks on previously created stylist, clicks "Add a new client", fills out form and clicks "Add client". | New client for that stylist is created. |
-<!-- | User can view all stylist clients.       |                   User clicks previously created stylist with previously created clients.                    |     List of that stylist's clients.     | -->
 | User can view all stylists.             |                                         User clicks "View stylists"                                         |  List of previously created stylists.  |
 
 ## Known Bugs
